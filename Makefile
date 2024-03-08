@@ -15,7 +15,7 @@ OBJ = $(SRC:.c=.o)
 INCLUDE = libft.h
 
 BONUSSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c\
-ft_lstadd_back_bonus.c
+ft_lstadd_back_bonus.c ft_lstiter_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c
 
 BONUSOBJ = $(BONUSSRC:.c=.o)
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJ) $(INCLUDE)
 bonus: $(OBJ) $(BONUSOBJ) $(INCLUDE)
 	$(LIB) $(NAME) $(BONUSOBJ) $(OBJ)
 
-%.o: %.c
+%.o: %.c Makefile libft.h
 	$(CC) $(CCFLAGS) -c -o $@ $<
 
 clean:
